@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Eligible
+      </h1>
+
+      <p>Application introduction page, content to be worked on:</p>
+
+      <p>We need some instructions about what the actual process will be.</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Fill in form</li>
+          <li>Book appointment</li>
+          <li>Attend appointment to verify ID documents</li>
+          <li>Help with the service</li>
+        </ul>
+
+    </div>
+  </div>
+
+  <button class="govuk-button">Continue</button>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Apply for a National Insurance number</h1>
+
+      <p class="govuk-body">You only need to apply for a National Insurance number if you work, or plan to work, in the UK.</p>
+
+      <h2 class="govuk-heading-l">Before you apply</h2>
+
+      <p class="govuk-body">Check <a href="#" class="govuk-link">how to find a lost National Insurance number</a>.</p>
+      <h3 class="govuk-heading-m">If you’re a UK resident aged 19 or under</h3>
+      <p class="govuk-body">If you’re a UK resident aged 19 or under
+You’ll normally be sent a National Insurance number automatically, in the 3 months before your 16th birthday, if both the following are true:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>you live in the UK</li>
+  <li>a parent has filled in a Child Benefit claim form for you</li>
+</ul>
+<p class="govuk-body">If you’re aged 16 to 19 and did not get one, call HM Revenue and Customs.</p>
+<h3 class="govuk-heading-m">If you’re moving to the UK</h3>
+<p class="govuk-body">You may already have a National Insurance (NI) number which will be printed on the back of your biometric residence permit (BRP).</p>
+<p class="govuk-body">If you do not have one, you must apply for a National Insurance number if you plan to work. You can only apply once you’re in the UK.</p>
+
+<h2 class="govuk-heading-l">How to apply</h2>
+<p class="govuk-body">To use this service you must:
+  <ul class="govuk-list govuk-list--bullet">
+  <li>be in the UK</li>
+  <li>have the right to work in the UK</li>
+</ul>
+
+{% from "button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Start now",
+  href: "q01-plan-to-work.html",
+  classes: "govuk-button--start"
+}) }}
+
+<p class="govuk-body">For help with an application, call the application line</p>
+
+{% from "inset-text/macro.njk" import govukInsetText %}
+
+{{ govukInsetText({
+  html: '<p class="govuk-body"><strong>National Insurance number application line </strong><br>Telephone: 0800 141 2075 <br>Textphone: 0800 141 2438 <br>Monday to Friday, 8am to 6pm</p>
+<p class="govuk-body">Welsh language: 0800 141 2349 <br>Monday to Friday, 8:30am to 5pm <br><a href="#" class="govuk-link">Find out about call charges</a></p>'
+}) }}
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
