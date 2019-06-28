@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Question page
+  Your nationality
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,13 +13,56 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">What is your nationality?</h1>
+      <h1 class="govuk-heading-xl">Your nationality</h1>
 
-      <form class="form" action="/url/of/next/page" method="post">
+      <form class="form" action="q08-marriage" method="post">
 
-        <p>[Insert question content here]</p>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="nationality">
+            What is your nationality?
+          </label>
+          <select class="govuk-select" id="nationality" name="nationality">
+            <option value="Please select" selected>Please select</option>
+            <option value="Afghan">Afghan</option>
+            <option value="Albanian">Albanian</option>
+            <option value="Algerian">Algerian</option>
+            <option value="American">American</option>
+            <option value="Andorran">Andorran</option>
+            <option value="Angolan">Angolan</option>
+            <option value="Anguillan">Anguillan</option>
+            <option value="Citizen of Antigua and Barbuda">Citizen of Antigua and Barbuda</option>
+            <option value="Argentine">Argentine</option>
+            <option value="Armenian">Armenian</option>
+            <option value="Australian">Australian</option>
+            <option value="Austrian">Austrian</option>
+            <option value="Azerbaijani">Azerbaijani</option>
+          </select>
+        </div>
 
-        <p>[See <a href="https://design-system.service.gov.uk">the GOV.UK Design System</a> for examples]</p>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <p></p>
+            <p>Do you currently hold, or have you ever held, any other nationality or citizenship?</p>
+
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="other-nationality-1" name="other-nationality" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="other-nationality-1">
+                  Yes
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="other-nationality-2" name="other-nationality" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="other-nationality-2">
+                  No
+                </label>
+              </div>
+
+            </div>
+
+          </fieldset>
+        </div>
 
         <button class="govuk-button">Continue</button>
 

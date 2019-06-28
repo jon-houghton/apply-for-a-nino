@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Address
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="q10-address.html">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Your UK address</h1>
+      <p>What is your address in the UK?</p>
+
+      <form class="form" action="q10-2-address" method="post">
+
+        <div class="govuk-form-group">
+          <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="example">
+                Postcode
+              </label>
+          </h3>
+
+          <h3 class="govuk-heading-m">NE4 9DD</h3>
+          <a class="govuk-link" href="#">Change</a>
+
+        </div>
+
+        <div class="govuk-form-group">
+          <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="example">
+                Select an address
+              </label>
+          </h3>
+          <select class="govuk-select" id="nationality" name="nationality">
+            <option value="30 Springbank Road" selected>30 Springbank Road</option>
+            <option value="32 Springbank Road">32 Springbank Road</option>
+            <option value="34 Springbank Road">34 Springbank Road</option>
+
+          </select>
+        </div>
+
+        <div class="govuk-form-group">
+          <a class="govuk-link" href="#">I can't find my address on the list</a>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
