@@ -1,6 +1,5 @@
 {% extends "template.njk" %}
 
-{# GOVUK Macros #}
 {% from "accordion/macro.njk"        import govukAccordion %}
 {% from "back-link/macro.njk"        import govukBackLink %}
 {% from "breadcrumbs/macro.njk"      import govukBreadcrumbs %}
@@ -27,66 +26,23 @@
 {% from "textarea/macro.njk"         import govukTextarea %}
 {% from "warning-text/macro.njk"     import govukWarningText %}
 
-{# DWP Macros #}
-{% from "index-page/macro.njk"       import dwpPrototypeSummaries %}
-
 {% block head %}
   {% include "includes/head.html" %}
 {% endblock %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+  Apply for a National Insurance number - Prototype
 {% endblock %}
 
 {% block header %}
-  <header class="govuk-header " role="banner" data-module="header">
-    <div class="govuk-header__container govuk-width-container">
-      <div class="govuk-header__logo">
-        <a href="/" class="govuk-header__link govuk-header__link--homepage">
-          <span class="govuk-header__logotype">
-            <span class="govuk-header__logotype-text">
-              DWP
-            </span>
-          </span>
-        </a>
-      </div>
-    </div>
-    <div class="dwp-prototype-index-page-top">
-      <div class="govuk-width-container">
-        <h1 class="govuk-heading-xl">
-          {{serviceName}}
-          <span>Prototypes</span>
-        </h1>
-      </div>
-    </div>
-  </header>
-{% endblock %}
-
-{% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      {% block summaries %}
-
-      {{dwpPrototypeSummaries([
-         {
-           dateOfRelease: "20 June 2019",
-           feature: "First iteration: V-01",
-           jiraStory: "-",
-           link: "/version-01/",
-           changes: [
-             "First iteration of this question set."
-           ],
-           research: [
-             " "
-           ]
-         }
-
-       ])}}
-
-
-      {% endblock %}
-    </div>
-  </div>
+  {% include "includes/cookie-banner.html" %}
+  {# Set serviceName in config.js. #}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container"
+  }) }}
 {% endblock %}
 
 {% if useAutoStoreData %}

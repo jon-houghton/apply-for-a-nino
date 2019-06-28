@@ -11,11 +11,11 @@ router.post('/plan-to-work-answer', function (req,res) {
   // Check whether the variable matches a condition
   if (planToWork == "yes"){
     // Send user to next page
-    res.redirect("/eligible")
+    res.redirect("version-01/eligible")
   }
   else {
     // Send user to ineligible page
-    res.redirect("/q02-in-work")
+    res.redirect("version-01/q02-in-work")
   }
 
 })
@@ -28,21 +28,30 @@ router.post('/in-work-answer', function (req,res) {
   // Check whether the variable matches a condition
   if (inWork == "yes"){
     // Send user to next page
-    res.redirect("/eligible")
+    res.redirect("version-01/eligible")
   }
   else {
     // Send user to ineligible page
-    res.redirect("/ineligible")
+    res.redirect("version-01/ineligible")
   }
 
 })
 
-router.get('/go-back', function(req, res) {
-    if (req.query.prev_page === 'q01-plan-to-work'){
-      res.render('/q01-plan-to-work');
-    } else if(req.query.prev_page === 'q02-in-work'){
-      res.render('/q02-in-work');
-    } e
-});
+router.post('/any-other-names', function (req,res) {
+
+  // Make a variable and give it the value from 'plan-to-work'
+  var anyOtherNames = req.session.data['any-other-names']
+
+  // Check whether the variable matches a condition
+  if (anyOtherNames == "yes"){
+    // Send user to next page
+    res.redirect("version-01/q04-1-other-names-placeholder")
+  }
+  else {
+    // Send user to ineligible page
+    res.redirect("version-01/q05-date-of-birth")
+  }
+
+})
 
 module.exports = router
