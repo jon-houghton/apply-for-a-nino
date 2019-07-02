@@ -15,7 +15,7 @@ router.post('/plan-to-work-answer', function (req,res) {
   }
   else {
     // Send user to ineligible page
-    res.redirect("version-01/q02-in-work")
+    res.redirect("version-01/ineligible")
   }
 
 })
@@ -32,7 +32,7 @@ router.post('/in-work-answer', function (req,res) {
   }
   else {
     // Send user to ineligible page
-    res.redirect("version-01/ineligible")
+    res.redirect("version-01/q02-plan-to-work")
   }
 
 })
