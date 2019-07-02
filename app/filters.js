@@ -23,7 +23,7 @@ module.exports = function (env) {
   var filters = {
     formatDate(dateBits) {
       const [day, month, year] = dateBits.map(str => parseInt(str, 10))
-      return day + ' ' + months[month] + ' ' + year
+      return day + ' ' + months[month - 1] + ' ' + year
     }
   }
 
