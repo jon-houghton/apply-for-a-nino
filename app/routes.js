@@ -11,7 +11,7 @@ router.post('/plan-to-work-answer', function (req,res) {
   // Check whether the variable matches a condition
   if (planToWork == "yes"){
     // Send user to next page
-    res.redirect("version-01/eligible")
+    res.redirect("version-01/q03-name")
   }
   else {
     // Send user to ineligible page
@@ -28,7 +28,7 @@ router.post('/in-work-answer', function (req,res) {
   // Check whether the variable matches a condition
   if (inWork == "yes"){
     // Send user to next page
-    res.redirect("version-01/eligible")
+    res.redirect("version-01/q03-name")
   }
   else {
     // Send user to ineligible page
