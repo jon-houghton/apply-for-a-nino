@@ -1,3 +1,18 @@
+const months = [
+  'January',
+  'Feburary',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+]
+
 module.exports = function (env) {
   /**
    * Instantiate object used to store the methods registered as a
@@ -5,7 +20,12 @@ module.exports = function (env) {
    * gov.uk core filters by creating filter methods of the same name.
    * @type {Object}
    */
-  var filters = {}
+  var filters = {
+    formatDate(dateBits) {
+      const [day, month, year] = dateBits.map(str => parseInt(str, 10))
+      return day + ' ' + months[month - 1] + ' ' + year
+    }
+  }
 
   /* ------------------------------------------------------------------
     add your methods to the filters obj below this comment block:
