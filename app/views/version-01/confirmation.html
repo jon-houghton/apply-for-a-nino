@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block pageTitle %}
+  Confirmation page example
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Application sent</h1>
+        <div class="govuk-panel__body">
+          <span class="govuk-!-font-size-24">Your application reference number</span><br><strong>HDJ2123F</strong>
+        </div>
+      </div>
+      <p></p>
+      <h2 class="govuk-heading-m">What you need to do next</h2>
+      <p>Call the National Insurance number application line to book an appointment where we will check your identity documents.</p>
+      <p>You will need your application reference number to book your appointment.</p>
+
+      <div class="govuk-inset-text">
+        <p class="govuk-body"><strong>National Insurance number application line </strong><br>
+          Telephone: 0800 141 2075<br>
+          Textphone: 0800 141 2438 <br>
+          Monday to Friday, 8am to 6pm</p>
+        <p class="govuk-body">Welsh language: 0800 141 2349 <br>
+          Monday to Friday, 8:30am to 5pm <br>
+          <a href="#" class="govuk-link">Find out about call charges</a></p>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="q10-1-address.html">Back</a>
+  <a class="govuk-back-link" href="q10-1-address">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -18,8 +18,8 @@
       <div class="govuk-inset-text">
         <p class="govuk-body">30 Springbank Road<br>
       Newcastle upon Tyne<br>
-      NE4 6AD</p>
-      <a class="govuk-link" href="#">Change</a>
+      {{ data['postcode'] }}</p>
+      <a class="govuk-link" href="q10-address">Change</a>
     </div>
 
 
@@ -33,29 +33,29 @@
           <span id="passport-issued-hint" class="govuk-hint">
             For example, 31 3 1980
           </span>
-          <div class="govuk-date-input" id="passport-issued">
+          <div class="govuk-date-input" id="uk-address-start">
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                <label class="govuk-label govuk-date-input__label" for="uk-address-start-day">
                   Day
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="number" pattern="[0-9]*">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uk-address-start-day" name="uk-address-start-day" type="number" pattern="[0-9]*">
               </div>
             </div>
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                <label class="govuk-label govuk-date-input__label" for="uk-address-start-month">
                   Month
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="number" pattern="[0-9]*">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uk-address-start-month" name="uk-address-start-month" type="number" pattern="[0-9]*">
               </div>
             </div>
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                <label class="govuk-label govuk-date-input__label" for="uk-address-start-year">
                   Year
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="number" pattern="[0-9]*">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="uk-address-start-year" name="uk-address-start-year" type="number" pattern="[0-9]*">
               </div>
             </div>
           </div>
@@ -72,15 +72,15 @@
 
             <div class="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="other-nationality-1" name="other-nationality" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="other-nationality-1">
+                <input class="govuk-radios__input" id="is-correspondence-1" name="is-correspondence" type="radio" value="Yes">
+                <label class="govuk-label govuk-radios__label" for="is-correspondence-1">
                   Yes
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="other-nationality-2" name="other-nationality" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="other-nationality-2">
+                <input class="govuk-radios__input" id="is-correspondence-2" name="is-correspondence" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="is-correspondence-2">
                   No
                 </label>
               </div>

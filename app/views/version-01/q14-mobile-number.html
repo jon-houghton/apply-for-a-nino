@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="q13-email-address">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What is your mobile telephone number?</h1>
+
+      <p>You must notify us immediately if the mobile telephone number you provide as part of this application changes.</p>
+
+      <form class="form" action="check-your-answers" method="post">
+
+        <div class="govuk-form-group">
+          <input class="govuk-input" id="mobile-number" name="mobile-number" type="text" autocomplete="name" spellcheck="false">
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
