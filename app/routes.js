@@ -9,7 +9,7 @@ router.post('/plan-to-work-answer', function (req,res) {
   var planToWork = req.session.data['plan-to-work']
 
   // Check whether the variable matches a condition
-  if (planToWork == "yes"){
+  if (planToWork == "Yes"){
     // Send user to next page
     res.redirect("version-02/q03-name")
   }
@@ -26,7 +26,7 @@ router.post('/in-work-answer', function (req,res) {
   var inWork = req.session.data['in-work']
 
   // Check whether the variable matches a condition
-  if (inWork == "yes"){
+  if (inWork == "Yes"){
     // Send user to next page
     res.redirect("version-02/q03-name")
   }
