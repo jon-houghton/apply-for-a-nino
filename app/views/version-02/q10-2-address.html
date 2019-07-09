@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Address
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="q10-1-address">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">When did you start living at 30 Springbank road?</h1>
+
+    <!--  <div class="govuk-inset-text">
+        <p class="govuk-body">30 Springbank Road<br>
+      Newcastle upon Tyne<br>
+      {{ data['postcode'] }}</p>
+      <a class="govuk-link" href="q10-address">Change</a>
+    </div>-->
+
+
+      <form class="form" action="q11-different-address" method="post">
+
+        <fieldset class="govuk-fieldset" aria-describedby="passport-issued-hint" role="group">
+
+          <!--<p></p>
+          <h3 class="govuk-heading-m">When did you start living at this address?</h3>-->
+
+          <span id="passport-issued-hint" class="govuk-hint">
+            For example, 31 3 2019
+          </span>
+          <div class="govuk-date-input" id="uk-address-start">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="uk-address-start-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uk-address-start-day" name="uk-address-start-day" type="number" pattern="[0-9]*">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="uk-address-start-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uk-address-start-month" name="uk-address-start-month" type="number" pattern="[0-9]*">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="uk-address-start-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="uk-address-start-year" name="uk-address-start-year" type="number" pattern="[0-9]*">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <!--<div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+
+              <p></p>
+
+              <h3 class="govuk-heading-m">Is this address also your correspondence address?</h3>
+
+            <p class="govuk-hint">We may use this address to contact you about your application, including after it has been decided.</p>
+
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="is-correspondence-1" name="is-correspondence" type="radio" value="Yes">
+                <label class="govuk-label govuk-radios__label" for="is-correspondence-1">
+                  Yes
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="is-correspondence-2" name="is-correspondence" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="is-correspondence-2">
+                  No
+                </label>
+              </div>
+
+            </div>
+
+          </fieldset>
+        </div>-->
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

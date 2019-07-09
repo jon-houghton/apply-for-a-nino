@@ -11,11 +11,11 @@ router.post('/plan-to-work-answer', function (req,res) {
   // Check whether the variable matches a condition
   if (planToWork == "yes"){
     // Send user to next page
-    res.redirect("version-02/q03-name")
+    res.redirect("version-01/q03-name")
   }
   else {
     // Send user to ineligible page
-    res.redirect("version-02/ineligible")
+    res.redirect("version-01/ineligible")
   }
 
 })
@@ -28,11 +28,11 @@ router.post('/in-work-answer', function (req,res) {
   // Check whether the variable matches a condition
   if (inWork == "yes"){
     // Send user to next page
-    res.redirect("version-02/q03-name")
+    res.redirect("version-01/q03-name")
   }
   else {
     // Send user to ineligible page
-    res.redirect("version-02/q02-plan-to-work")
+    res.redirect("version-01/q02-plan-to-work")
   }
 
 })
@@ -45,11 +45,11 @@ router.post('/any-other-names', function (req,res) {
   // Check whether the variable matches a condition
   if (anyOtherNames == "yes"){
     // Send user to next page
-    res.redirect("version-02/q04-1-other-names-placeholder")
+    res.redirect("version-01/q04-1-other-names-placeholder")
   }
   else {
     // Send user to ineligible page
-    res.redirect("version-02/q05-date-of-birth")
+    res.redirect("version-01/q05-date-of-birth")
   }
 
 })

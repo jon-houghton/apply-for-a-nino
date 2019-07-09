@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Address
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="q09-arrival.html">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What is your postcode?</h1>
+
+      <form class="form" action="q10-1-address" method="post">
+
+        <div class="govuk-form-group">
+          <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
+        </div>
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with postcode
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            A UK postcode is the last part of your address and is made up of letters and numbers (for example NE4 6UL). If you don't know your postcode you can <a class="govuk-link" href="#">enter your address manually</a>.
+          </div>
+        </details>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
