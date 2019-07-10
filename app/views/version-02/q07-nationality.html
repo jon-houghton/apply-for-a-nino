@@ -274,14 +274,14 @@
 
             <div class="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="other-nationality-1" name="other-nationality" type="radio" value="Yes">
+                <input class="govuk-radios__input" id="other-nationality-1" name="other-nationality" type="radio" value="Yes" {{ checked("other-nationality", "Yes") }}>
                 <label class="govuk-label govuk-radios__label" for="other-nationality-1">
                   Yes
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="other-nationality-2" name="other-nationality" type="radio" value="No">
+                <input class="govuk-radios__input" id="other-nationality-2" name="other-nationality" type="radio" value="No" {{ checked("other-nationality", "No") }}>
                 <label class="govuk-label govuk-radios__label" for="other-nationality-2">
                   No
                 </label>

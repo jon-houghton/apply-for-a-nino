@@ -21,12 +21,12 @@
           <fieldset class="govuk-fieldset">
             <div class="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="marriage-1" name="marriage" type="radio" value="Yes">
+                <input class="govuk-radios__input" id="marriage-1" name="marriage" type="radio" value="Yes" {{ checked("marriage", "Yes") }}>
                 <label class="govuk-label govuk-radios__label" for="marriage-1">
                   Yes
                 </label> </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="marriage-2" name="marriage" type="radio" value="No">
+                <input class="govuk-radios__input" id="marriage-2" name="marriage" type="radio" value="No" {{ checked("marriage", "No") }}>
                 <label class="govuk-label govuk-radios__label" for="marriage-2">
                   No
                 </label> </div>
