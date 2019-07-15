@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block pageTitle %}
+  You now need to call and book an appointment
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">You now need to call and book an appointment</h1>
+
+      <p class="govuk-body "><strong>National Insurance number application line </strong><br>
+        Telephone: 0800 141 2075<br>
+        Textphone: 0800 141 2438 <br>
+        Monday to Friday, 8am to 6pm
+      </p>
+      <p class="govuk-body govuk-!-margin-bottom-7">Welsh language: 0800 141 2349 <br>
+        Monday to Friday, 8:30am to 5pm <br>
+        <a href="#" class="govuk-link">Find out about call charges</a>
+      </p>
+
+
+    <p class="govuk-body">Your application reference number is:</p>
+
+    <div class="govuk-inset-text">
+      <p class="govuk-body-l govuk-!-font-weight-bold">HDJ2123F</p>
+    </div>
+
+    <p class="govuk-body">You will need your application reference number to book your appointment.</p>
+
+    <div class="govuk-warning-text govuk-!-margin-bottom-7">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        You can call us now or later, but we are unable to progress your application until you have attended an appointment.
+      </strong>
+    </div>
+
+    <a href="#" role="button" class="govuk-button ">Continue</a>
+
+  </div>
+</div>
+
+{% endblock %}

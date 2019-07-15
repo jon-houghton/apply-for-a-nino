@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="q03-name">Back</a>
+  <a class="govuk-back-link" href="q13-email-address">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -13,21 +13,22 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Have you ever been known by other names?</h1>
+      <h1 class="govuk-heading-xl">Can we send SMS text messages to {{ data['telephone-number']}}?</h1>
 
-      <form class="form" action="any-other-names" method="post">
+
+      <form class="form" action="check-your-answers" method="post">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <div class="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="any-other-names-1" name="any-other-names" type="radio" value="Yes" {{ checked("any-other-names", "Yes") }}>
-                <label class="govuk-label govuk-radios__label" for="any-other-names-1">
+                <input class="govuk-radios__input" id="is-sms-1" name="is-sms" type="radio" value="Yes" {{ checked("is-sms", "Yes") }}>
+                <label class="govuk-label govuk-radios__label" for="is-sms-1">
                   Yes
                 </label> </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="any-other-names-2" name="any-other-names" type="radio" value="No" {{ checked("any-other-names", "No") }}>
-                <label class="govuk-label govuk-radios__label" for="any-other-names-2">
+                <input class="govuk-radios__input" id="is-sms-2" name="is-sms" type="radio" value="No" {{ checked("is-sms", "No") }}>
+                <label class="govuk-label govuk-radios__label" for="is-sms-2">
                   No
                 </label> </div>
             </div>

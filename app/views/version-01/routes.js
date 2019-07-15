@@ -9,13 +9,13 @@ router.post('/plan-to-work-answer', function (req,res) {
   var planToWork = req.session.data['plan-to-work']
 
   // Check whether the variable matches a condition
-  if (planToWork == "yes"){
+  if (planToWork == "Yes"){
     // Send user to next page
-    res.redirect("version-01/q03-name")
+    res.redirect("q03-name")
   }
   else {
     // Send user to ineligible page
-    res.redirect("version-01/ineligible")
+    res.redirect("ineligible")
   }
 
 })
@@ -26,13 +26,13 @@ router.post('/in-work-answer', function (req,res) {
   var inWork = req.session.data['in-work']
 
   // Check whether the variable matches a condition
-  if (inWork == "yes"){
+  if (inWork == "Yes"){
     // Send user to next page
-    res.redirect("version-01/q03-name")
+    res.redirect("q03-name")
   }
   else {
     // Send user to ineligible page
-    res.redirect("version-01/q02-plan-to-work")
+    res.redirect("q02-plan-to-work")
   }
 
 })
@@ -43,13 +43,13 @@ router.post('/any-other-names', function (req,res) {
   var anyOtherNames = req.session.data['any-other-names']
 
   // Check whether the variable matches a condition
-  if (anyOtherNames == "yes"){
+  if (anyOtherNames == "Yes"){
     // Send user to next page
-    res.redirect("version-01/q04-1-other-names-placeholder")
+    res.redirect("q04-1-other-names-placeholder")
   }
   else {
     // Send user to ineligible page
-    res.redirect("version-01/q05-date-of-birth")
+    res.redirect("q05-date-of-birth")
   }
 
 })
