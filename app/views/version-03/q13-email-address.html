@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="q12-contacting-you">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What is your email address?</h1>
+
+      <p>You must notify us immediately if the email address you provide as part of this application changes.</p>
+
+      <form class="form" action="check-your-answers" method="post">
+
+        <div class="govuk-form-group">
+          <input class="govuk-input" id="email-address" name="email-address" type="text" autocomplete="name" spellcheck="false">
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend">
+              <p></p>
+              <p class="govuk-fieldset__heading">
+                Who does this email address belong to?
+              </p>
+            </legend>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="email-belong-to-1" name="email-belong-to" type="radio" value="you">
+                <label class="govuk-label govuk-radios__label" for="email-belong-to-1">
+                  You
+                </label> </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="email-belong-to-2" name="email-belong-to" type="radio" value="someone-else">
+                <label class="govuk-label govuk-radios__label" for="email-belong-to-2">
+                  Someone else
+                </label> </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
