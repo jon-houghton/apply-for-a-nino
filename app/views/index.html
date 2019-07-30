@@ -62,6 +62,8 @@
   </header>
 {% endblock %}
 
+<!-- Updtated the node_modules/dwp-design-examples/index-page macro.njk to include a param.title so that feature isn't duplicated - Line 50-->
+
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -70,8 +72,9 @@
       {{dwpPrototypeSummaries([
           {
             dateOfRelease: "16 July 2019",
-            feature: "First iteration: V-03",
+            feature: "-",
             jiraStory: "-",
+            title: "First iteration: V-03",
             link: "/version-03/",
             changes: [
               "We've made various changes, which I'll document when I've got more time."
@@ -83,27 +86,36 @@
 
          {
            dateOfRelease: "11 July 2019",
-           feature: "First iteration: V-02",
+           feature: "-",
            jiraStory: "-",
+           title: "First iteration: V-02",
            link: "/version-02/",
            changes: [
-             "We've made various changes, which I'll document when I've got more time."
+             "Start page - index: Amended copy, removed other reasons for a NINo, added numbered list of actions
+             // Other names -  q04-any-other-names  - Removed hint text 
+             // Postcode  - q10-address  - Reworded question, added details link
+             // Phone number  - q12-telephone New question, split out from contact preferences
+             // Contact preferences  - q13-contacting-you  - New page, need to sort out routeing
+             // Email address  - q13-1-email-address Removed ‘change email address text
+             // SMS  - q13-2-sms - New page
+             // Postal address  - q13-3-postal-address - New page"
            ],
            research: [
-             " "
+             "Despite the numbered list on the Start page, users still didn't know to call the call centre when they had completed the application. Consider scraping the complete page."
            ]
          },
 
          {
            dateOfRelease: "4 July 2019",
-           feature: "First iteration: V-01",
+           feature: "-",
            jiraStory: "-",
+           title: "First iteration: V-01",
            link: "/version-01/",
            changes: [
-             "First iteration of this question set."
+             "First iteration of this question set. Would uses think the reerence number was their National Insurance number?"
            ],
            research: [
-             " "
+             "Users didn't think the reference number was the their National Insurance number, but they didn't realise they needed to call the call centre and thought the were done."
            ]
          }
 
