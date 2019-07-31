@@ -21,7 +21,7 @@ router.use('/version-03', (req, res, next) => {
   return require('./views/version-03/routes')(req, res, next)
 })
 
-// tell the router on every url that has /version-03, use the routes file in views/version-03
+// tell the router on every url that has /version-03, use the routes file in views/version-04
 router.use('/version-04', (req, res, next) => {
   // make sure to pass req, res, next in to the require at the end
   return require('./views/version-04/routes')(req, res, next)
