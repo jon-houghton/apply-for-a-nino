@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="q11-different-address.html">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Contacting you</h1>
+
+      <p class="govuk-body govuk-!-margin-bottom-7">We will need to contact you about your application, for example, to send you a confirmation of your application, which you can show to your employer.</p>
+
+
+      <form class="form" action="" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-pref">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend">
+              <h2 class="govuk-heading-l">How can we contact you?
+                </h2>
+                <span id="contact-pref" class="govuk-hint">
+                  You can select more than one option.
+                </span>
+            </legend>
+
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="contact-pref-1" name="contact-pref" type="checkbox" value="sms" {{ checked("contact-pref", "sms") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="contact-pref-1">
+                  SMS (text message)
+                </label> </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="contact-pref-2" name="contact-pref" type="checkbox" value="telephone" {{ checked("contact-pref", "telephone") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="contact-pref-2">
+                  Telephone
+                </label> </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="contact-pref-3" name="contact-pref" type="checkbox" value="email" {{ checked("contact-pref", "email") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="contact-pref-3">
+                  Email
+                </label> </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="contact-pref-4" name="contact-pref" type="checkbox" value="letter" {{ checked("contact-pref", "letter") }}>
+                <label class="govuk-label govuk-checkboxes__label" for="contact-pref-4">
+                  Letter
+                </label> </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
