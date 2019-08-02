@@ -13,3 +13,26 @@ $govuk-global-styles: true;
 @import "components/cookie-banner";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+.afn-center-div
+{
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 3px;
+}
+
+.afn-outer-div
+{
+  padding: 30px;
+  background-color: #f3f3f3;
+}
+.afn-inner-div
+{
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  border-radius: 3px;
+}
