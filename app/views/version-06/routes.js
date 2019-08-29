@@ -180,9 +180,9 @@ router.get('/q04-2-other-names-list', function (req, res) {
 })
 
 router.post('/other-names-list-answer', function (req, res) {
-  const anyOtherNames = req.session.data['any-other-names']
+  const anyMoreNames = req.session.data['any-more-names']
 
-  if (anyOtherNames === 'Yes') {
+  if (anyMoreNames === 'Yes') {
     res.redirect('q04-1-other-names-details')
   } else {
     res.redirect('q05-date-of-birth')
