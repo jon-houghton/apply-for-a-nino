@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a <a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+  <a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -17,20 +17,20 @@
 
       <p>Enter your name as shown on your passport or official identification documents.</p>
 
-      <form class="form" action="q04-any-other-names-yn" method="post">
+      <form class="form" action="{{ 'q04-2-other-names-list' if change else 'q04-any-other-names-yn' }}" method="post">
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="given-names">
             Given names
           </label>
-          <input class="govuk-input" id="given-names" name="given-names" type="text" autocomplete="name" spellcheck="false">
+          <input class="govuk-input" id="given-names" name="given-names" type="text" autocomplete="name" spellcheck="false" value="{{ data['given-names'] }}">
         </div>
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="family-name">
             Family name
           </label>
-          <input class="govuk-input" id="family-name" name="family-name" type="text" autocomplete="name" spellcheck="false">
+          <input class="govuk-input" id="family-name" name="family-name" type="text" autocomplete="name" spellcheck="false" value="{{ data['family-name'] }}">
         </div>
 
         <button class="govuk-button">Continue</button>
