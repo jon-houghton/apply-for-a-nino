@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block pageTitle %}
+  Application sent
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Application sent</h1>
+        <div class="govuk-panel__body">
+          <span class="govuk-!-font-size-24">Your application reference number</span><br><strong>HDJ2123F</strong>
+        </div>
+      </div>
+      <p></p>
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p class="govuk-body">We will contact you within 8 weeks with a decision about your application for a National Insurance number.</p>
+
+        <p class="govuk-body">You do not need to wait for your National Insurance number to apply for a job or start work.</p>
+
+          <p class="govuk-body">An employer will know how to register you on their payroll system while you wait for your National Insurance number. They might ask you for some proof of your right to work in the UK.</p>
+            <p class="govuk-body">If you change your address before you get your letter, call the National Insurance number application line. You will need your reference number if you call us.</p>
+
+            <p class=govuk-body><strong>National Insurance number application line</strong><br>
+Telephone: 0800 141 2075<br>
+Textphone: 0800 141 2438<br>
+Monday to Friday, 8am to 6pm<br>
+Welsh language: 0800 141 2349<br>
+Monday to Friday, 8:30am to 5pm<br>
+<a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+
+
+      <!-- <div class="govuk-inset-text">
+        <p class="govuk-body"><strong>National Insurance number application line </strong><br>
+          Telephone: 0800 141 2075<br>
+          Textphone: 0800 141 2438 <br>
+          Monday to Friday, 8am to 6pm</p>
+        <p class="govuk-body">Welsh language: 0800 141 2349 <br>
+          Monday to Friday, 8:30am to 5pm <br>
+          <a href="#" class="govuk-link">Find out about call charges</a></p>
+      </div> -->
+    </div>
+  </div>
+
+{% endblock %}
