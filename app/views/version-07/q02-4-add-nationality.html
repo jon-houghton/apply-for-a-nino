@@ -15,13 +15,13 @@
 
       <h1 class="govuk-heading-xl">What other nationality have you held?</h1>
 
-      <form class="form" action="q02-3-nationality" method="post">
+      <form class="form" action="{{ id if change else 'add-other-nationality' }}" method="post">
 
         <div class="govuk-form-group">
-          <label class="govuk-label" for="nationality">
+          <label class="govuk-label" for="other-nationality">
 
           </label>
-          <select class="govuk-select" id="nationality" name="nationality">
+          <select class="govuk-select" id="other-nationality" name="other-nationality">
             <option value="Please select" selected>Please select</option>
             <option value="United States">United States</option>
             <option value="United Kingdom">United Kingdom</option>
@@ -274,14 +274,14 @@
 
             <div class="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="other-nationality-1" name="other-nationality" type="radio" value="Yes" {{ checked("other-nationality", "Yes") }}>
+                <input class="govuk-radios__input" id="other-nationality-yes" name="other-nationality-1" type="radio" value="Yes" {{ checked("other-nationality", "Yes") }}>
                 <label class="govuk-label govuk-radios__label" for="other-nationality-1">
                   Yes
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="other-nationality-2" name="other-nationality" type="radio" value="No" {{ checked("other-nationality", "No") }}>
+                <input class="govuk-radios__input" id="other-nationality-no" name="other-nationality-1" type="radio" value="No" {{ checked("other-nationality", "No") }}>
                 <label class="govuk-label govuk-radios__label" for="other-nationality-2">
                   No
                 </label>

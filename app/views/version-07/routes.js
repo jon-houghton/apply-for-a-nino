@@ -35,18 +35,56 @@ router.post('/q02-3-nationality', function (req, res) {
   // Make a variable and give it the value from 'any-other-names'
   var nationality = req.session.data['nationality'];
 
-    console.log(req.session.data)
+    console.log('session on first page is ',req.session.data)
   var otherNationalities = req.session.data['other-nationality']
   // Check whether the variable matches a condition
-  if (euCountries.includes(nationality) && otherNationalities === 'Yes') {
+  if (otherNationalities === 'Yes') {
+    // Send user to next page
+    res.redirect('q02-4-add-nationality')
+  } 
+  else if (euCountries.includes(nationality) && otherNationalities === 'No'){
+    // Send user to q02-2-have-brp page
+    res.redirect('q05-date-of-birth')
+  } else {
+    res.redirect('q02-2-have-brp')
+    
+  }
+})
+
+router.post('/add-other-nationality', function (req, res) {
+  console.log('session is ', req.session.data)
+  var euCountries = ['France', 'Spain']; 
+  var matches = 0;
+  var anyOtherNationalities = req.session.data['other-nationality-1']
+  console.log('any other ', anyOtherNationalities)
+  const otherNationalities = req.session.data['nationalities'] || []
+  otherNationalities.push(req.session.data['nationality']);
+  otherNationalities.push(req.session.data['other-nationality']);
+  req.session.data['nationalities'] = otherNationalities;
+  console.log('nationalities', otherNationalities)
+
+  // Check whether the variable matches a condition
+  if (anyOtherNationalities === 'Yes') {
     // Send user to next page
     res.redirect('q02-4-add-nationality')
   } else {
+    
+    // check for the presence of anything not in the EU
+    otherNationalities.map((eachNationality) => {
+      if(!euCountries.includes(eachNationality)) {
+        matches++;
+        console.log('matches', matches)
+      }
+    })
+
+    // if non eu anywhere in the list then redirect to brp
+    if (matches > 0){
+      res.redirect('q02-2-have-brp')
+    }
     // Send user to q05-date-of-birth page
     res.redirect('q05-date-of-birth')
   }
 })
-
 
 router.post('/any-other-names', function (req, res) {
   // Make a variable and give it the value from 'any-other-names'
