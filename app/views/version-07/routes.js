@@ -34,31 +34,35 @@ router.post('/q02-3-nationality', function (req, res) {
   var euCountries = ['France', 'Spain'];
   // Make a variable and give it the value from 'any-other-names'
   var nationality = req.session.data['nationality'];
+  var otherSelectedNationalities = req.session.data['nationalities'] || [];
 
     console.log('session on first page is ',req.session.data)
   var otherNationalities = req.session.data['other-nationality']
   // Check whether the variable matches a condition
   if (otherNationalities === 'Yes') {
     // Send user to next page
-    res.redirect('q02-4-add-nationality')
+    otherSelectedNationalities.push(nationality);
+    res.redirect('q02-5-nationality-list')
+    // res.redirect('q02-4-add-nationality')
   } 
   else if (euCountries.includes(nationality) && otherNationalities === 'No'){
-    // Send user to q02-2-have-brp page
+    otherSelectedNationalities.push(nationality);
     res.redirect('q05-date-of-birth')
   } else {
+    otherSelectedNationalities.push(nationality);
     res.redirect('q02-2-have-brp')
     
   }
 })
 
-router.post('/add-other-nationality', function (req, res) {
-  console.log('session is ', req.session.data)
+router.post('/add-other-nationality', function (req, res) { 
+  console.log('session on second page is ', req.session.data)
   var euCountries = ['France', 'Spain']; 
   var matches = 0;
   var anyOtherNationalities = req.session.data['other-nationality-1']
   console.log('any other ', anyOtherNationalities)
   const otherNationalities = req.session.data['nationalities'] || []
-  otherNationalities.push(req.session.data['nationality']);
+  // otherNationalities.push(req.session.data['nationality']);
   otherNationalities.push(req.session.data['other-nationality']);
   req.session.data['nationalities'] = otherNationalities;
   console.log('nationalities', otherNationalities)
@@ -66,7 +70,7 @@ router.post('/add-other-nationality', function (req, res) {
   // Check whether the variable matches a condition
   if (anyOtherNationalities === 'Yes') {
     // Send user to next page
-    res.redirect('q02-4-add-nationality')
+    res.redirect('q02-5-nationality-list')
   } else {
     
     // check for the presence of anything not in the EU
@@ -100,6 +104,71 @@ router.post('/any-other-names', function (req, res) {
   }
 })
 
+router.get('/q02-5-nationality-list', function (req, res) {
+
+  
+  console.log('session in third page is', req.session.data)
+  // Creat summary list row for current name
+  const mainNationality = req.session.data['nationality']
+  const currentNationality = {
+    key: {
+      classes: 'govuk-!-width-one-third',
+      text: `Current nationality`
+    },
+    value: {
+      classes: 'govuk-!-width-one-third',
+      text: `${mainNationality}`
+    },
+    actions: {
+      classes: 'govuk-!-width-one-third',
+      items: [
+        {
+          href: `q02-nationality?change`,
+          text: 'Change',
+          visuallyHiddenText: `current nationality`
+        }
+      ]
+    }
+  }
+
+  // Create array of summary list rows of other names
+  const otherNationalities = req.session.data['nationalities'] || [];
+  const anyMoreNationalities = req.session.data['any-more-nationalities'];
+  console.log('other nats',otherNationalities)
+  const otherNationalityRows = otherNationalities.map((nationalities, i) => ({
+    key: {
+      classes: 'govuk-!-width-one-third',
+      text: `Previous nationality ${(i === 0 ? '' : i + 1)}`
+    },
+    value: {
+      classes: 'govuk-!-width-one-third',
+      text: `${nationalities}`
+    },
+    actions: {
+      classes: 'govuk-!-width-one-third',
+      items: [
+        {
+          href: `change-other-nationality/${i}`,
+          text: 'Change',
+          visuallyHiddenText: `previous nationality ${i + 1}`
+        },
+        {
+          href: `delete-other-nationality/${i}`,
+          text: 'Delete',
+          visuallyHiddenText: `previous nationality ${i + 1}`
+        }
+      ]
+    }
+  }))
+
+  // Merge into one list and add to view
+  res.locals.nationalities = [currentNationality, ...otherNationalityRows]
+  if(anyMoreNationalities === 'Yes'){
+    
+  }
+  res.render('version-07/q02-5-nationality-list.html')
+
+})
 router.post('/have-brp', function (req, res) {
   // Make a variable and give it the value from 'any-other-names'
   var haveBrp = req.session.data['have-brp']
