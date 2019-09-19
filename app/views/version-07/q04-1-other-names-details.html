@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="q04-any-other-names">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">What other names have you been known by?</h1>
+
+    <form class="form" action="{{ id if change else 'add-other-name' }}" method="post">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="other-given-names">
+            Given names
+          </label>
+          <input class="govuk-input" id="other-given-names" name="other-given-names" type="text" autocomplete="name" spellcheck="false" value="{{ givenNames }}">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="other-family-name">
+            Family name
+        </label>
+        <input class="govuk-input" id="other-family-name" name="other-family-name" type="text" autocomplete="name" spellcheck="false" value="{{ familyName }}">
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

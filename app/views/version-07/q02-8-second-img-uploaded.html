@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="q02-7-img-uploading">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Upload pictures of your biometric residence permit</h1>
+
+      <p class="govuk-body-l">Upload two pictures of your biometric residence permit, the front and back.</p>
+
+      <!-- <img src="img/test.jpg" alt="Trulli" width="500" height="333"> -->
+
+      <h2 class="govuk-heading-m">Pictures added</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Front of my brp
+          </dt>
+          <dd class="govuk-summary-list__value">
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="q02-4-img-upload">
+              Delete
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Back of my brp
+          </dt>
+          <dd class="govuk-summary-list__value">
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="q02-6-first-img-uploaded">
+              Delete
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <a href="q03-name" role="button" class="govuk-button">Continue</a>
+
+    </div>
+  </div>
+
+{% endblock %}
