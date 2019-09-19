@@ -8,7 +8,7 @@ router.post('/plan-to-work-answer', function (req, res) {
   // Check whether the variable matches a condition
   if (planToWork === 'Yes') {
     // Send user to next page
-    res.redirect('q02-2-have-brp')
+    res.redirect('q02-3-nationality')
   } else {
     // Send user to ineligible page
     res.redirect('ineligible')
@@ -29,7 +29,24 @@ router.post('/in-work-answer', function (req, res) {
   }
 })
 
-router.post('/q02-3-nationality', function (req, res) {
+// Jons hockey EU router
+router.post('/brp-router', function (req, res) {
+  // Make a variable for our list of EU countries
+  var euCountries = ['Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Republic of Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'Iceland', 'Liechtenstein', 'Norway', 'Switzerland'];
+  // Make a variable and give it the value from 'nationality'
+  var nationality = req.session.data['nationality'];
+    console.log(req.session.data)
+  // Check whether the variable matches a condition
+  if (euCountries.includes(nationality)) {
+    // Send user to no BRP page
+    res.redirect('no-brp')
+  } else {
+    // Send user to BRP page
+    res.redirect('q02-2-have-brp')
+  }
+})
+
+router.post('x/q02-3-nationality', function (req, res) {
   // Make a variable for our list of EU countries
   var euCountries = ['France', 'Spain'];
   // Make a variable and give it the value from 'any-other-names'

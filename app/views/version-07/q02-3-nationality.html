@@ -15,7 +15,7 @@
 
       <h1 class="govuk-heading-xl">What is your nationality?</h1>
 
-      <form class="form" action="q02-3-nationality" method="post">
+      <form class="form" action="q02-3-1-other-nationality" method="post">
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="nationality">
@@ -265,31 +265,6 @@
             <option value="Zambia">Zambia</option>
             <option value="Zimbabwe">Zimbabwe</option>
           </select>
-        </div>
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <p></p>
-            <p>Have you ever held any other nationality or citizenship?</p>
-
-            <div class="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="other-nationality-1" name="other-nationality" type="radio" value="Yes" {{ checked("other-nationality", "Yes") }}>
-                <label class="govuk-label govuk-radios__label" for="other-nationality-1">
-                  Yes
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="other-nationality-2" name="other-nationality" type="radio" value="No" {{ checked("other-nationality", "No") }}>
-                <label class="govuk-label govuk-radios__label" for="other-nationality-2">
-                  No
-                </label>
-              </div>
-
-            </div>
-
-          </fieldset>
         </div>
 
         <button class="govuk-button">Continue</button>
