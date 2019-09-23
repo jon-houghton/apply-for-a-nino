@@ -30,85 +30,52 @@ router.post('/in-work-answer', function (req, res) {
 })
 
 router.post('/q02-3-nationality', function (req, res) {
-  // Make a variable for our list of EU countries
-  var euCountries = ['France', 'Spain'];
-  // Make a variable and give it the value from 'any-other-names'
-  var nationality = req.session.data['nationality'];
-  var otherSelectedNationalities = req.session.data['nationalities'] || [];
+  res.redirect('q02-3a-any-other-nationality');
+})
 
-    console.log('session on first page is ',req.session.data)
-  var otherNationalities = req.session.data['other-nationality']
+router.post('/q02-3a-any-other-nationality', function (req, res) {
+
+  // Variable to hold current nationality
+  var nationality = req.session.data['nationality'];
+
+  // Make a variable for our list of EU countries
+  var euCountries = ['France', 'Spain','Austria'];
+
+  // if applicant has more nationalities to add
+  var hasOtherNationalities = req.session.data['other-nationality'];
+  
   // Check whether the variable matches a condition
-  if (otherNationalities === 'Yes') {
-    // Send user to next page
-    otherSelectedNationalities.push(nationality);
-    res.redirect('q02-5-nationality-list')
-    // res.redirect('q02-4-add-nationality')
-  } 
-  else if (euCountries.includes(nationality) && otherNationalities === 'No'){
-    otherSelectedNationalities.push(nationality);
-    res.redirect('q05-date-of-birth')
+  if (hasOtherNationalities === 'Yes') {
+    // redirect to add page
+    res.redirect('q02-4-add-nationality')
+  } else if (euCountries.includes(nationality) && hasOtherNationalities === 'No'){
+    // redirect to appropriate ineligibility page
+    res.redirect('index_no_eligibility')
   } else {
-    otherSelectedNationalities.push(nationality);
+    // non-EU and no other nationality to consider, go straight to BRP page
     res.redirect('q02-2-have-brp')
     
   }
 })
 
 router.post('/add-other-nationality', function (req, res) { 
-  console.log('session on second page is ', req.session.data)
-  var euCountries = ['France', 'Spain']; 
-  var matches = 0;
-  var anyOtherNationalities = req.session.data['other-nationality-1']
-  console.log('any other ', anyOtherNationalities)
-  const otherNationalities = req.session.data['nationalities'] || []
-  // otherNationalities.push(req.session.data['nationality']);
+  // get anything we already have in a list of nationalities
+  const otherNationalities = req.session.data['nationalities'] || [];
+
+  // push the newly selected nationality to the list
   otherNationalities.push(req.session.data['other-nationality']);
+
+  // update the session with the new state of the list
   req.session.data['nationalities'] = otherNationalities;
-  console.log('nationalities', otherNationalities)
 
-  // Check whether the variable matches a condition
-  if (anyOtherNationalities === 'Yes') {
-    // Send user to next page
-    res.redirect('q02-5-nationality-list')
-  } else {
-    
-    // check for the presence of anything not in the EU
-    otherNationalities.map((eachNationality) => {
-      if(!euCountries.includes(eachNationality)) {
-        matches++;
-        console.log('matches', matches)
-      }
-    })
+  // finally redirect to our list page which should display them all
+  res.redirect('q02-5-nationality-list');
 
-    // if non eu anywhere in the list then redirect to brp
-    if (matches > 0){
-      res.redirect('q02-2-have-brp')
-    }
-    // Send user to q05-date-of-birth page
-    res.redirect('q05-date-of-birth')
-  }
-})
-
-router.post('/any-other-names', function (req, res) {
-  // Make a variable and give it the value from 'any-other-names'
-  var anyOtherNames = req.session.data['any-other-names']
-
-  // Check whether the variable matches a condition
-  if (anyOtherNames === 'Yes') {
-    // Send user to next page
-    res.redirect('q04-1-other-names-details')
-  } else {
-    // Send user to q05-date-of-birth page
-    res.redirect('q05-date-of-birth')
-  }
 })
 
 router.get('/q02-5-nationality-list', function (req, res) {
 
-  
-  console.log('session in third page is', req.session.data)
-  // Creat summary list row for current name
+  // Create summary list row for current nationality
   const mainNationality = req.session.data['nationality']
   const currentNationality = {
     key: {
@@ -131,10 +98,8 @@ router.get('/q02-5-nationality-list', function (req, res) {
     }
   }
 
-  // Create array of summary list rows of other names
+  // Create array of summary list rows of other nationalities
   const otherNationalities = req.session.data['nationalities'] || [];
-  const anyMoreNationalities = req.session.data['any-more-nationalities'];
-  console.log('other nats',otherNationalities)
   const otherNationalityRows = otherNationalities.map((nationalities, i) => ({
     key: {
       classes: 'govuk-!-width-one-third',
@@ -163,10 +128,40 @@ router.get('/q02-5-nationality-list', function (req, res) {
 
   // Merge into one list and add to view
   res.locals.nationalities = [currentNationality, ...otherNationalityRows]
-  if(anyMoreNationalities === 'Yes'){
-    
-  }
   res.render('version-07/q02-5-nationality-list.html')
+  
+})
+
+router.post('/any-more-nationalities', function(req, res) {
+  const anyMoreNationalities = req.session.data['any-more-nationalities'];
+  const nationalities = req.session.data['nationalities'] || [];
+  const currentNationality = req.session.data['nationality'];
+  var euCountries = ['France', 'Spain', 'Austria']; 
+  var matches = 0;
+
+  if(anyMoreNationalities === 'Yes'){
+    res.redirect('q02-4-add-nationality')
+  } else {
+    // add our current nationality to the list if its not there already
+    if(!nationalities.includes(currentNationality)){
+      nationalities.push(currentNationality);
+    }
+  
+    console.log('final list of nationalities', nationalities)
+    // check all nationalitiesfor the presence of anything not in the EU
+    nationalities.map((eachNationality) => {
+      if(!euCountries.includes(eachNationality)) {
+        matches++;
+      }
+    })
+
+    // if non eu anywhere in the list then redirect to brp
+    if (matches > 0){
+      res.redirect('q02-2-have-brp')
+    }
+    // Send user to boot out page
+    res.redirect('index_no_eligibility')
+  }
 
 })
 router.post('/have-brp', function (req, res) {
@@ -180,6 +175,20 @@ router.post('/have-brp', function (req, res) {
   } else {
     // Send user to q05-date-of-birth page
     res.redirect('no-brp')
+  }
+})
+
+router.post('/any-other-names', function (req, res) {
+  // Make a variable and give it the value from 'any-other-names'
+  var anyOtherNames = req.session.data['any-other-names']
+
+  // Check whether the variable matches a condition
+  if (anyOtherNames === 'Yes') {
+    // Send user to next page
+    res.redirect('q04-1-other-names-details')
+  } else {
+    // Send user to q05-date-of-birth page
+    res.redirect('q05-date-of-birth')
   }
 })
 
