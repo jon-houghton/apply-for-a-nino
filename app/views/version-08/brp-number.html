@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What is your biometric residence permit number?</h1>
+
+      <img src="/public/images/card-example-xsmall.png" alt="Image showing where to find the number on a biometric residence permit (BRP). The number is on the front of the card in the top right corner." class="govuk-body govuk-!-margin-bottom-4">
+
+      <form class="form" action="brp-img-upload" method="post">
+
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h3 class="govuk-fieldset__heading">
+            Enter your biometric resident permit number
+          </h3>
+        </legend>
+        <span id="dob-hint" class="govuk-hint">
+          For example RE1234567
+        </span>
+
+        <div class="govuk-form-group">
+
+          <input class="govuk-input govuk-input--width-10" id="mobile-number" name="brp-number" type="text" autocomplete="brp-number" spellcheck="false">
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block pageTitle %}
+  Application sent
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Application sent</h1>
+        <div class="govuk-panel__body">
+          <span class="govuk-!-font-size-24">Your application reference number</span><br><strong>HDJ2123F</strong>
+        </div>
+      </div>
+      <p></p>
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p class="govuk-body">We will contact you by <strong>15 November 2019</strong> with a decision about your application.</p>
+
+        <p class="govuk-body">You can start work or apply for a job before you get your National Insurance number.</p>
+
+        <p class="govuk-body">An employer will know how to register you on their payroll system while you wait for your National Insurance number. They might ask you for some proof of your right to work in the UK.</p>
+        <p class="govuk-body">If you do not hear from us by <strong>15 November 2019</strong>, or if you change your address, call us on <strong>0800 141 2346</strong>. You will need your reference number if you call us.</p>
+
+        <p class="govuk-body"><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
