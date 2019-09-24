@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Add a photo of the front of your biometric residence permit</h1>
+
+      <p class="govuk-body">The front is the side with your photo on it.</p>
+
+      <p class="govuk-body">You can add a photo already saved on your device or use your device to take a new photo.</p>
+
+      <h3 class="govuk-heading-m">How we need you to take the photo</h3>
+
+      <ol class="govuk-list govuk-list--number govuk-!-margin-bottom-7">
+        <li>Put your biometric residence permit on a  flat surface like a table.</li>
+        <li>Make sure you are in a well lit place.</li>
+        <li>Hold your phone above the permit.</li>
+      </ol>
+
+      <div class="govuk-form-group">
+        <label class="govuk-heading-m" for="file-upload-1">
+          Add a photo
+        </label>
+        <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+      </div>
+
+      <a href="self-img-upload" role="button" class="govuk-button">Continue</a>
+
+    </div>
+  </div>
+
+{% endblock %}
