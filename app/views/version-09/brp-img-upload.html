@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Add a photo of the front of your biometric residence permit</h1>
+
+      <p class="govuk-body">The front is the side with your photo on it.</p>
+
+      <p class="govuk-body">You can add a photo already saved on your device or use your device to take a new photo.</p>
+
+      <h3 class="govuk-heading-m">How we need you to take the photo</h3>
+
+      <ol class="govuk-list govuk-list--number govuk-!-margin-bottom-7">
+        <li>Put your biometric residence permit on a  flat surface like a table.</li>
+        <li>Make sure you are in a well lit place.</li>
+        <li>Hold your phone above the permit.</li>
+      </ol>
+
+      <form action="self-img-upload" method="post" enctype="multipart/form-data" id="formData" name="formData" data-form="takeAPhoto" autocomplete="off">
+                <div class="{{ 'error' if errors.photoOCR  or fileError }}">
+                    {% if errors.photoOCR %}
+                        <span class="gds-red bold display-b">Ronis photo</span>
+                    {% endif %}
+                    {% if fileError === true %}
+                        <span class="gds-red bold display-b">error stuff</span>
+                    {% endif %}
+                    <label id="userPhotoIDLabel" class="button govuk-button" for="userPhotoID">
+                        <span role="button" aria-controls="userPhotoIDLabel" tabindex="0">Add photo</span>
+                    </label>
+                    <input type="file" accept="image/*,application/pdf"  id="userPhotoID" name="userPhoto" class="display-offscreen" onclick = "ga('send', 'event', 'Button - click', 'Photo', 'Take Photo' , {'metric1':  1 }); ga('send', 'pageview', '/camera');">
+
+                    <!-- <div class="form-group" aria-hidden="true">
+                        <label for="imageNameID" aria-hidden="true">Leave blank</label>
+                        <input type="text"  name="imageNameField" id="imageNameID" aria-hidden="true" value="" autofill="off">
+                    </div> -->
+
+                    <!-- <div id="js-loading-message" class="display-offscreen">
+                        <div class="spinner">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <p>stuff</p>
+                    </div> -->
+                    <!-- <div id="js-submitButtonContainer" class="clearfix">
+                        <input type="submit" class="button primary-button" value="Send" id="submitButton">
+                    </div> -->
+                </div>
+            </form>
+
+      <!-- <form action="/send-photo" method="post" enctype="multipart/form-data" id="formData" name="formData" data-form="takeAPhoto" autocomplete="off">
+        <div class="govuk-form-group">
+          <label id="userPhotoIDLabel" class="button govuk-button" for="file-upload-1">
+            <span role="button" aria-controls="userPhotoIDLabel" tabindex="0">Add photo</span>
+            <input type="file" accept="image/*,application/pdf"  id="userPhotoID" name="userPhoto" class="display-offscreen" onclick = "ga('send', 'event', 'Button - click', 'Photo', 'Take Photo' , {'metric1':  1 }); ga('send', 'pageview', '/camera');">
+          </label>
+
+        </div>
+
+
+      </form> -->
+
+      <!-- <a href="self-img-upload" role="button" class="govuk-button">Continue</a> -->
+
+    </div>
+  </div>
+
+{% endblock %}
