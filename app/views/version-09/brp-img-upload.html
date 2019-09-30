@@ -27,7 +27,7 @@
         <li>Hold your phone above the permit.</li>
       </ol>
 
-      <form action="self-img-upload" method="post" enctype="multipart/form-data" id="formData" name="formData" data-form="takeAPhoto" autocomplete="off">
+      <form action="upload-an-image" method="post" enctype="multipart/form-data" id="formData" name="formData" data-form="takeAPhoto" autocomplete="off">
                 <div class="{{ 'error' if errors.photoOCR  or fileError }}">
                     {% if errors.photoOCR %}
                         <span class="gds-red bold display-b">Ronis photo</span>
@@ -38,7 +38,7 @@
                     <label id="userPhotoIDLabel" class="button govuk-button" for="userPhotoID">
                         <span role="button" aria-controls="userPhotoIDLabel" tabindex="0">Add photo</span>
                     </label>
-                    <input type="file" accept="image/*,application/pdf"  id="userPhotoID" name="userPhoto" class="display-offscreen" onclick = "ga('send', 'event', 'Button - click', 'Photo', 'Take Photo' , {'metric1':  1 }); ga('send', 'pageview', '/camera');">
+                    <input type="file" accept="image/*,application/pdf"  id="userPhotoID" name="userPhoto" class="display-offscreen" onchange="this.form.submit()">
 
                     <!-- <div class="form-group" aria-hidden="true">
                         <label for="imageNameID" aria-hidden="true">Leave blank</label>

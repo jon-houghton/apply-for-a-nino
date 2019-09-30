@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
+const path = require('path');
+const upload = require('../../../upload-middleware');
+
 router.post('/plan-to-work-answer', function (req, res) {
   // Make a variable and give it the value from 'plan-to-work'
   var planToWork = req.session.data['plan-to-work']
@@ -44,6 +47,59 @@ router.post('/brp-router', function (req, res) {
     // Send user to BRP page
     res.redirect('have-brp')
   }
+})
+
+
+let data;
+
+router.get('/brp-img-upload', (req, res, next) => {
+  console.log('got to the session', req.session)
+  data = {
+    brpCardFront: null,
+    brpCardFrontFilename: null
+  };
+
+  const applicationData = req.session.data;
+
+  // if there's already an image in the session use that
+  if (applicationData['brp-img-upload']) {
+    data.brpCardFront = applicationData['brp-img-upload'].brpCardFront || null;
+    data.brpCardFrontFilename = applicationData['brp-img-upload'].brpCardFrontFilename || null;
+  }
+
+  // Then render the page
+  // this seems to need an absolute path to the image rather than relative
+  res.render('version-09/brp-img-upload', data)
+});
+
+router.post('/upload-an-image', upload.single('userPhoto'), async (req, res, next) => {
+  console.log('file upload is ', req.file)
+  // if (!req.file && (data.brpCardBack === null) ) {
+  //   res.status(401).json({ error: 'Please provide an image' });
+  // }
+  if(!req.file){
+    res.status(401).json({ error: 'Please provide an image' });
+  }
+
+  console.log('data in upload screen is', data)
+  // if we don't already have the image then add it
+  if (data.brpCardFront === null) {
+    data.brpCardFront = req.file.path;
+    data.brpCardFrontFilename = req.file.originalname;
+    req.session.data['brp-img-upload'] = {
+      filename: data.brpCardFrontFilename,
+      path: data.brpCardFront
+    }
+    res.redirect('self-img-upload');
+  } else {
+    console.log('in the else')
+  }
+
+});
+
+router.get('/self-img-upload', function (req, res) {
+  console.log('data passed across', req.session.data)
+  res.render('version-09/self-img-upload');
 })
 
 router.post('x/q02-3-nationality', function (req, res) {
