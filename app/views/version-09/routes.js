@@ -60,6 +60,7 @@ router.get('/brp-img-upload', (req, res, next) => {
   };
 
   const applicationData = req.session.data;
+  console.log('app data is ', applicationData)
 
   // if there's already an image in the session use that
   if (applicationData['brp-img-upload']) {
@@ -74,26 +75,21 @@ router.get('/brp-img-upload', (req, res, next) => {
 
 router.post('/upload-an-image', upload.single('userPhoto'), async (req, res, next) => {
   console.log('file upload is ', req.file)
-  // if (!req.file && (data.brpCardBack === null) ) {
-  //   res.status(401).json({ error: 'Please provide an image' });
-  // }
-  if(!req.file){
+ 
+  if(!req.file  && data.brpCardFront === null){
     res.status(401).json({ error: 'Please provide an image' });
   }
-
-  console.log('data in upload screen is', data)
-  // if we don't already have the image then add it
-  if (data.brpCardFront === null) {
-    data.brpCardFront = req.file.path;
-    data.brpCardFrontFilename = req.file.originalname;
-    req.session.data['brp-img-upload'] = {
-      filename: data.brpCardFrontFilename,
-      path: data.brpCardFront
-    }
-    res.redirect('self-img-upload');
-  } else {
-    console.log('in the else')
+  
+  // add the image stuff to data and session
+  data.brpCardFront = req.file.path;
+  data.brpCardFrontFilename = req.file.originalname;
+  req.session.data['brp-img-upload'] = {
+    filename: data.brpCardFrontFilename,
+    path: data.brpCardFront
   }
+
+  // then redirect
+  res.redirect('self-img-upload');
 
 });
 
