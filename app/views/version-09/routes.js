@@ -49,31 +49,13 @@ router.post('/brp-router', function (req, res) {
   }
 })
 
+var data = {
+  brpCardFront: null,
+  brpCardFrontFilename: null
+};
 
-let data;
 
-router.get('/brp-img-upload', (req, res, next) => {
-  console.log('got to the session', req.session)
-  data = {
-    brpCardFront: null,
-    brpCardFrontFilename: null
-  };
-
-  const applicationData = req.session.data;
-  console.log('app data is ', applicationData)
-
-  // if there's already an image in the session use that
-  if (applicationData['brp-img-upload']) {
-    data.brpCardFront = applicationData['brp-img-upload'].brpCardFront || null;
-    data.brpCardFrontFilename = applicationData['brp-img-upload'].brpCardFrontFilename || null;
-  }
-
-  // Then render the page
-  // this seems to need an absolute path to the image rather than relative
-  res.render('version-09/brp-img-upload', data)
-});
-
-router.post('/upload-an-image', upload.single('userPhoto'), async (req, res, next) => {
+router.post('/upload-brp-image', upload.single('userPhoto'), async (req, res, next) => {
   console.log('file upload is ', req.file)
  
   if(!req.file  && data.brpCardFront === null){
@@ -93,10 +75,28 @@ router.post('/upload-an-image', upload.single('userPhoto'), async (req, res, nex
 
 });
 
-router.get('/self-img-upload', function (req, res) {
-  console.log('data passed across', req.session.data)
-  res.render('version-09/self-img-upload');
-})
+router.post('/upload-self-image', upload.single('userSelfPhoto'), async (req, res, next) => {
+  console.log('file upload is ', req.file)
+ 
+  if(!req.file  && data.userPhoto === null){
+    res.status(401).json({ error: 'Please provide an image' });
+  }
+  
+  // add the image stuff to data and session
+  data.userPhoto = req.file.path;
+  data.userPhotoFilename = req.file.originalname;
+  req.session.data['self-img-upload'] = {
+    filename: data.userPhotoFilename,
+    path: data.userPhoto
+  }
+
+  console.log('checking the session', req.session.data)
+
+  // then redirect
+  res.redirect('q03-name');
+
+});
+
 
 router.post('x/q02-3-nationality', function (req, res) {
   // Make a variable for our list of EU countries

@@ -25,14 +25,14 @@
         <li>unaltered by computer software.</li>
       </ol>
 
-      <div class="govuk-form-group">
-        <label class="govuk-heading-m" for="file-upload-1">
-          Add a photo
-        </label>
-        <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
-      </div>
-
-      <a href="q03-name" role="button" class="govuk-button">Continue</a>
+      <form action="upload-self-image" method="post" enctype="multipart/form-data" id="photoForm" name="photoForm" data-form="takeASelfie" autocomplete="off">
+        <div>
+            <label id="userSelfPhotoIDLabel" class="button govuk-button" for="userSelfPhotoID">
+                <span role="button" aria-controls="userSelfPhotoIDLabel" tabindex="0">Add photo</span>
+            </label>
+            <input type="file" accept="image/*,application/pdf"  id="userSelfPhotoID" name="userSelfPhoto" class="display-offscreen" onchange="this.form.submit()">
+        </div>
+    </form>
 
     </div>
   </div>
