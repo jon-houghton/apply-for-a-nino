@@ -50,3 +50,61 @@ $govuk-assets-path: '/govuk/assets/';
     width: 1px;
     overflow: hidden;
 }
+
+.autocomplete__input--show-all-values.autocomplete__input--focused +
+.autocomplete__dropdown-arrow-down {
+  z-index: 1;
+}
+
+.autocomplete__dropdown-arrow-down {
+  z-index: 1;
+}
+
+/*** AUTOCOMPLETE ***/
+
+.autocomplete__menu {
+  font-family: "nta";
+}
+
+.header-search .autocomplete__input {
+  background-color: #FFF;
+  min-height: 40px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 0px;
+    -webkit-appearance: none;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-image: initial;
+    border-radius: 0px;
+}
+
+.ui-autocomplete {
+  background-color: #fff;
+  border: 2px solid #0b0c0c;
+  border-top: 0;
+  color: #34384b;
+  margin: 0;
+  padding: 0;
+  width: calc(100% - 4px);
+  width: 200px;
+  max-height: 300px;
+  overflow-x: hidden;
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+}
+.ui-autocomplete .ui-menu-item {
+  border-top: 1px solid #bfc1c3;
+  display: block;
+  padding: 4px 6px;
+  color: #34384b;
+  cursor: pointer;
+}
+.ui-autocomplete .ui-menu-item:first-child {
+  border-top: none;
+}
+.ui-autocomplete .ui-menu-item.ui-state-focus {
+  background-color: #005ea5;
+  color: #FFF !important;
+}

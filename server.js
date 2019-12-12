@@ -247,6 +247,10 @@ if (promoMode === 'true') {
     next()
   })
 
+  // Add an autocomplete from node module
+  app.use('/autocomplete', express.static(path.join(__dirname, 'node_modules/accessible-autocomplete/dist')))
+
+
   app.get('/robots.txt', function (req, res) {
     res.type('text/plain')
     res.send('User-agent: *\nDisallow: /')

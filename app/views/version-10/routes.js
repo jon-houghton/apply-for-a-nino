@@ -37,7 +37,7 @@ router.post('/in-work-answer', function (req, res) {
   // Make a variable for our list of EU countries
   var euCountries = ['Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Republic of Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'Iceland', 'Liechtenstein', 'Norway', 'Switzerland'];
   // Make a variable and give it the value from 'nationality'
-  var nationality = req.session.data['nationality'];
+  var nationality = req.session.data['input-autocomplete'];
     console.log(req.session.data)
   // Check whether the variable matches a condition
   if (euCountries.includes(nationality)) {
