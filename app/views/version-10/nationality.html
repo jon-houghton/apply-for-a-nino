@@ -2,26 +2,14 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Where would you like to find out about? | Explore the digital skills market by area
+  Your nationality
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
 {% endblock %}
 
 {% block content %}
-
-{{ govukPhaseBanner({
-  tag: {
-    text: "alpha"
-  },
-  html: 'This is a new service – your feedback will help us to improve it.'
-}) }}
-
-<div class="govuk-breadcrumbs">
-  <ol class="govuk-breadcrumbs__list">
-    <li class="govuk-breadcrumbs__list-item">
-      Home
-    </li>
-  </ol>
-</div>
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
@@ -30,10 +18,9 @@
         <fieldset class="govuk-fieldset" id="where_fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
             <h1 class="govuk-fieldset__heading">
-            Where would you like to find out about?
+            What is your nationality?
             </h1>
           </legend>
-          <span class="govuk-hint">You can search for a region, a local enterprise partnership or a local authority district.</span>
           <div class="govuk-form-group">
             <div id="nationality"></div>
           </div>
@@ -59,10 +46,10 @@
 
     /*global accessibleAutocomplete*/
     const countries = [
-  'France',
-  'Germany',
-  'United Kingdom',
-  'Australia'
+  'French',
+  'German',
+  'British',
+  'Australian'
 ]
 
 accessibleAutocomplete({
