@@ -57,9 +57,15 @@ router.use('/version-09', (req, res, next) => {
   return require('./views/version-09/routes')(req, res, next)
 })
 
-// tell the router on every url that has /version-09, use the routes file in views/version-10
+// tell the router on every url that has /version-10, use the routes file in views/version-10
 router.use('/version-10', (req, res, next) => {
   // make sure to pass req, res, next in to the require at the end
   return require('./views/version-10/routes')(req, res, next)
+})
+
+// tell the router on every url that has /version-11, use the routes file in views/version-11
+router.use('/version-11', (req, res, next) => {
+  // make sure to pass req, res, next in to the require at the end
+  return require('./views/version-11/routes')(req, res, next)
 })
 module.exports = router

@@ -1,0 +1,222 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+
+      <h2 class="govuk-heading-m">Personal details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['given-names'] }} {{ data['family-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="q03-name">
+              Change
+              <span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Any other names
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['any-other-names'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="q04-any-other-names">
+              Change
+              <span class="govuk-visually-hidden"> any other names</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ [
+              data['dob-day'],
+              data['dob-month'],
+              data['dob-year']
+            ] | formatDate }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="q05-date-of-birth">
+              Change
+              <span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Nationality
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['input-autocomplete'] }}
+          <dd class="govuk-summary-list__actions">
+            <a href="q07-nationality">
+              Change
+              <span class="govuk-visually-hidden"> nationality</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Biometric resident permit number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['brp-number'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="q02-3-brp-number">
+              Change
+              <span class="govuk-visually-hidden"> other nationalities</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Passport number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['passport-number'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="passport-number">
+              Change
+              <span class="govuk-visually-hidden"> passport number</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Arrival and address</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Arrived in the UK
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ [
+              data['arrival-day'],
+              data['arrival-month'],
+              data['arrival-year']
+            ] | formatDate }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="q09-arrival">
+              Change
+              <span class="govuk-visually-hidden"> arrived in the UK</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your UK address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            30 Springbank Road <br/>
+            Newcastle upon Tyne <br/>
+            NE2 9PQ
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="q10-address">
+              Change
+              <span class="govuk-visually-hidden"> your uk address</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Contacting you</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Telephone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['telephone-number']}}
+            {{ data['mobile-number']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="q12-contacting-you">
+              Change
+              <span class="govuk-visually-hidden"> telephone number</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['email-address'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="q13-email-address">
+              Change
+              <span class="govuk-visually-hidden"> email address</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            How can we contact you?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            I can be contacted by: {{ data['contact-pref'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="q12-contacting-you">
+              Change
+              <span class="govuk-visually-hidden"> how can we contact you?</span>
+            </a>
+          </dd>
+        </div>
+
+      </dl>
+
+      <h2 class="govuk-heading-m">Now send your application</h2>
+
+      <p class="govuk-!-margin-bottom-8">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+      <form action="confirmation" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button">
+          Accept and send
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
