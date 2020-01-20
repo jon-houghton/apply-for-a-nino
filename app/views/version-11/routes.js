@@ -124,10 +124,20 @@ router.post('/any-other-names', function (req, res) {
   // Check whether the variable matches a condition
   if (anyOtherNames === 'Yes') {
     // Send user to next page
-    res.redirect('q04-1-other-names-details')
+    res.redirect('name-changes')
   } else {
     // Send user to q05-date-of-birth page
     res.redirect('date-of-birth')
+  }
+})
+
+router.post('/name-changes', function (req, res) {
+  var nameChanges = req.session.data['name-changes'];
+
+  if(nameChanges === 'Both') {
+    res.redirect('q04-1-other-names-details');
+  } else {
+    console.log('to come later')
   }
 })
 
@@ -213,38 +223,40 @@ router.get('/q04-2-other-names-list', function (req, res) {
   // Creat summary list row for current name
   const givenNames = req.session.data['given-names']
   const familyName = req.session.data['family-name']
-  const currentName = {
-    key: {
-      classes: 'govuk-!-width-one-third',
-      text: `Current name`
-    },
-    value: {
-      classes: 'govuk-!-width-one-third',
-      text: `${givenNames} ${familyName}`
-    },
-    actions: {
-      classes: 'govuk-!-width-one-third',
-      items: [
-        {
-          href: `q03-name?change`,
-          text: 'Change',
-          visuallyHiddenText: `current name`
-        }
-      ]
-    }
-  }
+  // const currentName = {
+  //   key: {
+  //     classes: 'govuk-!-width-one-third',
+  //     text: `Current name`
+  //   },
+  //   value: {
+  //     classes: 'govuk-!-width-one-third',
+  //     text: `${givenNames} ${familyName}`
+  //   },
+  //   actions: {
+  //     classes: 'govuk-!-width-one-third',
+  //     items: [
+  //       {
+  //         href: `q03-name?change`,
+  //         text: 'Change',
+  //         visuallyHiddenText: `current name`
+  //       }
+  //     ]
+  //   }
+  // }
 
   // Create array of summary list rows of other names
   const otherNames = req.session.data['other-names'] || []
   const otherNameRows = otherNames.map((names, i) => ({
     key: {
-      classes: 'govuk-!-width-one-third',
-      text: `Previous name ${(i === 0 ? '' : i + 1)}`
-    },
-    value: {
+      // classes: 'govuk-!-width-one-third',
+      // text: `${(i === 0 ? '' : i + 1)}`
       classes: 'govuk-!-width-one-third',
       text: `${names.givenNames} ${names.familyName}`
     },
+    // value: {
+    //   classes: 'govuk-!-width-one-third',
+    //   text: `${names.givenNames} ${names.familyName}`
+    // },
     actions: {
       classes: 'govuk-!-width-one-third',
       items: [
@@ -263,8 +275,8 @@ router.get('/q04-2-other-names-list', function (req, res) {
   }))
 
   // Merge into one list and add to view
-  res.locals.names = [currentName, ...otherNameRows]
-  res.render('version-06/q04-2-other-names-list.html')
+  res.locals.names = [...otherNameRows]
+  res.render('version-11/q04-2-other-names-list.html')
 })
 
 router.post('/other-names-list-answer', function (req, res) {
