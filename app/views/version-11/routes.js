@@ -141,6 +141,7 @@ router.post('/name-changes', function (req, res) {
   }
 })
 
+
 router.post('/have-brp', function (req, res) {
   // Make a variable and give it the value from 'any-other-names'
   var haveBrp = req.session.data['have-brp']
@@ -168,7 +169,7 @@ router.post('/add-other-name', function (req, res) {
 
   otherNames.push({ givenNames, familyName })
   req.session.data['other-names'] = otherNames
-  res.redirect('q04-2-other-names-list')
+  res.redirect('date-of-birth')
 })
 
 router.get('/change-other-name/:id', function (req, res) {
