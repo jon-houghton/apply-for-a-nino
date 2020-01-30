@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">What was your name before it was {{ data['first-names'] }} {{ data['surname'] }}?</h1>
+
+    <form class="form" action="other-names-list" method="post">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="other-first-names-01">
+            First names
+          </label>
+          <input class="govuk-input" id="other-first-names-01" name="other-first-names-01" type="text" autocomplete="name" spellcheck="false" value="{{ otherFirstNames01 }}">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="other-surname-01">
+            Surname
+        </label>
+        <input class="govuk-input" id="other-surname-01" name="other-surname-01" type="text" autocomplete="name" spellcheck="false" value="{{ otherSurname01 }}">
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
