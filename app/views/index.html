@@ -32,6 +32,9 @@
 {# DWP Macros #}
 {% from "index-page/macro.njk"       import dwpPrototypeSummaries %}
 
+{# App Macros #}
+{% from "macros.njk"       import appPrototypeSummaries %}
+
 {% block head %}
   {% include "includes/head.html" %}
 {% endblock %}
@@ -71,18 +74,21 @@
     <div class="govuk-grid-column-two-thirds">
       {% block summaries %}
 
-      {{dwpPrototypeSummaries([
+      {{appPrototypeSummaries([
         {
-          dateOfRelease: "#",
-          feature: "Version 12",
+          dateOfRelease: "w/c 27.01.20",
+          feature: "12",
           jiraStory: "-",
-          title: "Version 12",
+          title: "Sprint 12",
           link: "/version-12/",
           changes: [
-            "Address amended."
+            '<p>Removed <i>name</i> from <i>Property name or number</i> from the address lookup after seven out of seven non-UK participants entered their whole address in the field.</p>
+
+            <p>Added isolated <a href="version-12/_names/name">Names and other names</a> section for usability testing. <b>Test scenario:</b> Participant can enter name, different first and surname, followed by different surname and is then presented with the <i>Your names</i> list.</p>
+            <p>Reintroduced <i>Male or female</i> question to gather additioinal insight around asking the question.</p>'
           ],
           research: [
-            " "
+          '<p>One user who tested the amended <i>Property name or number</i> address lookup also entered their full addrerss in the field.</p>'
           ]
         },
 

@@ -112,3 +112,8 @@ $govuk-assets-path: '/govuk/assets/';
 #nationality {
   width: 100%;
 }
+
+.full-width-image {
+  max-width: 100%;
+  height: auto;
+}

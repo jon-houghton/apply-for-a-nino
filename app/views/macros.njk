@@ -1,0 +1,72 @@
+{% macro appPrototypeSummaries(array) %}
+  {% for params in array %}
+    {% if loop.index0 === 0 %}
+      {{generateSummary(params, 'dwp-prototype-summary--most-recent')}}
+    {% endif %}
+  {% endfor %}
+  {% if array.length > 1 %}
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Previous iterations
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        {% for params in array %}
+          {% if loop.index0 > 0 %}
+            {{generateSummary(params)}}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </details>
+  {% endif %}
+{% endmacro %}
+
+{% macro generateSummary(params, class) %}
+  <div class="dwp-prototype-summary {{class if class}}">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <dl>
+          <dt class="govuk-heading-s">Testing date</dt>
+          <dd class="govuk-body">{{params.dateOfRelease or 'Not released yet'}}</dd>
+        </dl>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+        <dl>
+          <dt class="govuk-heading-s">Version</dt>
+          <dd class="govuk-body">{{params.feature}}</dd>
+        </dl>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+        <dl>
+          <dt class="govuk-heading-s">JIRA story</dt>
+          <dd class="govuk-body">{{params.jiraStory}}</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h2 class="govuk-heading-m">{{params.title}}</h2>
+
+    <h3 class="govuk-heading-s">Changes</h3>
+    {% for paragraph in params.changes %}
+      <p class="govuk-body">
+        {{paragraph|safe}}
+      </p>
+    {% endfor %}
+
+    <h3 class="govuk-heading-s">Research notes</h3>
+    {% for paragraph in params.research %}
+      <p class="govuk-body">
+        {{paragraph|safe}}
+      </p>
+    {% endfor %}
+
+    <br />
+
+    <a href="{{params.link}}" class="govuk-button govuk-button--start">
+      {{params.buttonText or 'Start now'}}
+    </a>
+  </div>
+{% endmacro %}
