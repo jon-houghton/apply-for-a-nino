@@ -45,7 +45,7 @@ router.post('/in-work-answer', function (req, res) {
     res.redirect('no-brp')
   } else {
     // Send user to BRP page
-    res.redirect('have-brp')
+    res.redirect('brp-number')
   }
 })
 
