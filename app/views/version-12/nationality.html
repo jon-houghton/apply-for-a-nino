@@ -13,18 +13,29 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" class="form" action="brp-router">
+      <form method="post" class="form" action="brp-number">
 
         <fieldset class="govuk-fieldset" id="where_fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-            <h1 class="govuk-fieldset__heading">
+            <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-2">
             What is your nationality?
             </h1>
           </legend>
-          <div class="govuk-form-group">
+          <div class="govuk-form-group govuk-body">
             <div id="nationality" class="govuk-!-width-one-half"></div>
           </div>
         </fieldset>
+
+        <details class="govuk-details govuk-!-padding-bottom-4">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with nationality
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            If you have <a href="https://www.gov.uk/dual-citizenship" target="_blank" class="govuk-link">dual citizenship</a> please select the nationality which matches the passport you are using to make this application.
+          </div>
+        </details>
 
         <button class="govuk-button">Continue</button>
 

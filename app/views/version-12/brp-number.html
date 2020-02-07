@@ -11,10 +11,11 @@
 {% block content %}
 
   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">What is your biometric residence permit (BRP) number?</h1>
 
-      <img class="full-width-image" src="/public/images/card-example-xsmall.png" alt="Image showing where to find the number on a biometric residence permit (BRP). The number is on the front of the card in the top right corner." class="govuk-body govuk-!-margin-bottom-4">
+      <img class="full-width-image govuk-!-margin-bottom-4" src="/public/images/card-example-xsmall.png" alt="Image showing where to find the number on a biometric residence permit (BRP). The number is on the front of the card in the top right corner.">
 
       <form class="form" action="passport-number" method="post">
 
@@ -32,10 +33,33 @@
           <input class="govuk-input govuk-input--width-10" id="mobile-number" name="brp-number" type="text" autocomplete="brp-number" spellcheck="false">
         </div>
 
+        <details class="govuk-details govuk-!-padding-bottom-4">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with biometric residence permit (BRP)
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            A biometric residence permit (BRP) is a secure identity card which contains personal details and biometric information for those who have permission (a visa) to come to the UK for more than 6 months.
+
+            <br/><br/>You may already have a National Insurance number on the back of your BRP.
+
+            <br/><br/>It will look like this:
+
+            <br/><br/><b>QQ 12 34 56 A</b>
+
+            <br/><br/>If you have a National Insurance number on your BRP you can begin using it straight away.
+
+            <a href="https://www.gov.uk/biometric-residence-permits" target="_blank" class="govuk-link">More information about the BRP</a>
+
+          </div>
+        </details>
+
         <button class="govuk-button">Continue</button>
 
       </form>
 
+    </div>
   </div>
 
 {% endblock %}
