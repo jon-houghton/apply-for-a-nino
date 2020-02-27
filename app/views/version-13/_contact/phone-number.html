@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl afn-20px-margin">What is your phone number?</h1>
+
+      <p class="govuk-body govuk-!-padding-bottom-3">We may call you if we have any questions about your application.</p>
+
+      <form class="form" action="#" method="post">
+
+        <div class="govuk-form-group">
+          <span id="telephone-number-hint" class="govuk-hint">
+            For international numbers include the country code. For example +44 0808 157 0192.
+          </span>
+          <input class="govuk-input govuk-input--width-10" id="email-address" name="email-address" type="text" autocomplete="name" spellcheck="false">
+        </div>
+
+        <p class="govuk-body govuk-!-padding-bottom-7"><a class="govuk-link" href="how-we-contact">I don't have a phone number</a></p>
+
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Address
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Select your address</h1>
+      <p class="govuk-!-margin-bottom-8">1 address found for <strong>'32'</strong> and <strong>'NE2 9PQ'</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="govuk-link" href="address">Change</a></p>
+
+
+      <form class="form " action="arrival" method="get">
+
+        <div class="govuk-form-group">
+
+          <div class="govuk-radios govuk-!-margin-bottom-6"">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="in-work-1" name="in-work" type="radio" value="Yes" {{ checked("in-work", "Yes") }}>
+              <label class="govuk-label govuk-radios__label" for="in-work-1">
+                30 SPRINGBANK ROAD, SANDYFORD, NEWCASTLE UPON TYNE, NE2 9PQ
+              </label>
+            </div>
+          </div>
+
+        <p class="govuk-body govuk-!-margin-bottom-8""><a class="govuk-link" href="address-not-listed">My address is not listed</a></p>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

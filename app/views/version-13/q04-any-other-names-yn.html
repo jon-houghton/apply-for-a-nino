@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl afn-20px-margin">Has your name ever changed?</h1>
+      <span class="govuk-hint afn-50px-margin">For example, because of marriage.</span>
+
+      <form class="form" action="any-other-names" method="post">
+
+        <div class="govuk-form-group govuk-!-padding-bottom-4">
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="any-other-names-1" name="any-other-names" type="radio" value="Yes" {{ checked("any-other-names", "Yes") }}>
+                <label class="govuk-label govuk-radios__label" for="any-other-names-1">
+                  Yes
+                </label> </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="any-other-names-2" name="any-other-names" type="radio" value="No" {{ checked("any-other-names", "No") }}>
+                <label class="govuk-label govuk-radios__label" for="any-other-names-2">
+                  No
+                </label> </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

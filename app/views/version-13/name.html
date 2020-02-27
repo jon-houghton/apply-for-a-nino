@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What is your name?</h1>
+
+      <p>Enter your name as shown on your passport.</p>
+
+      <form class="form" action="{{ 'q04-2-other-names-list' if change else 'q04-any-other-names-yn' }}" method="post">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="given-names">
+            First names
+          </label>
+          <input class="govuk-input" id="given-names" name="given-names" type="text" autocomplete="name" spellcheck="false" value="{{ data['given-names'] }}">
+        </div>
+
+        <div class="govuk-form-group govuk-!-padding-bottom-4">
+          <label class="govuk-label" for="family-name">
+            Surname
+          </label>
+          <input class="govuk-input" id="family-name" name="family-name" type="text" autocomplete="name" spellcheck="false" value="{{ data['family-name'] }}">
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

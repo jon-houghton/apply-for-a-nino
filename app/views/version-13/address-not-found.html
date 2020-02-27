@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Address
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Address not found</h1>
+
+      <p class="govuk-!-margin-bottom-8">No addresses found for <strong>'{{ data['postcode'] }}'</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="govuk-link" href="address">Change</a></p>
+
+      <a href="address-not-listed" class="govuk-button">Type your address</a>
+
+    </div>
+  </div>
+
+{% endblock %}
