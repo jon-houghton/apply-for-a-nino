@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Address
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl afn-small-margin">Your address in the United Kingdom (UK)</h1>
+
+      <p class="govuk-body">We will send you a letter to confirm we’ve received your application, and another to tell you about our decision.</p>
+      <p class="govuk-body govuk-!-margin-bottom-9">We may also ask for more information to support your application.</p>
+
+      <form class="form" action="address-results" method="post">
+
+        <h2 class="govuk-heading-l afn-20px-margin">What is your postcode?</h2>
+
+        <span class="govuk-hint govuk-!-margin-bottom-5">We will use a postcode to search for your address.</span>
+
+        <div class="govuk-form-group">
+          <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text"  value="{{ data['postcode'] }}">
+        </div>
+
+        <details class="govuk-details govuk-!-padding-bottom-4">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with postcode
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            A UK postcode is the last part of your address and is made up of letters and numbers (for example NE98 1YX).
+          </div>
+        </details>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

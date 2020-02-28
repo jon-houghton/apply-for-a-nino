@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Which part of your name was different?</h1>
+
+      <form class="form" action="other-names-details-02" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="name-changes-1" name="name-changes" type="radio" value="First names"> <!-- {{ checked("name-changes", "Yes") }} -->
+                <label class="govuk-label govuk-radios__label" for="name-changes-1">
+                  First names
+                </label> </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="name-changes-2" name="name-changes" type="radio" value="Surname"> <!-- {{ checked("name-changes", "No") }} -->
+                <label class="govuk-label govuk-radios__label" for="name-changes-2">
+                  Surname
+                </label> </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="name-changes-3" name="name-changes" type="radio" value="Both"> <!-- {{ checked("name-changes", "Both") }} -->
+                <label class="govuk-label govuk-radios__label" for="name-changes-3">
+                  Both first names and surname
+                </label> </div>
+            </div>
+
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
