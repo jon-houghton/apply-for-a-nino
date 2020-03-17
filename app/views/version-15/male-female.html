@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What is your gender
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Are you male or female?</h1>
+
+      <form class="form" action="address" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="sex-1" name="sex" type="radio" value="Male" {{ checked("sex", "Male") }}>
+                <label class="govuk-label govuk-radios__label" for="sex-1">
+                  Male
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="sex-2" name="sex" type="radio" value="Female" {{ checked("sex", "Female") }}>
+                <label class="govuk-label govuk-radios__label" for="sex-2">
+                  Female
+                </label>
+              </div>
+
+            </div>
+
+          </fieldset>
+        </div>
+
+        <details class="govuk-details govuk-!-padding-bottom-4">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with this question
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+
+            Your gender will not affect your application for a National Insurance number. If you have a gender-neutral passport, prefer to self-describe, or prefer not to say, please enter whichever gender you feel most comfortable with.
+            <br/><br/>
+            We are collecting this information because our IT systems will not work without it. It is also used for monitoring purposes, to ensure we are not discriminating against you based on how you identify. Unfortunately our current technology does not allow us to collect any additional information about your gender identity.
+          </div>
+        </details>
+
+          <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

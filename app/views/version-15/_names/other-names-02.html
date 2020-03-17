@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="#" onclick="history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Did you have a different name before {{ data['other-first-names-01'] }} {{ data['other-surname-01'] }}?</h1>
+
+      <form class="form" action="name-change-part-02" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="any-other-names-1" name="any-other-names" type="radio" value="Yes"> <!-- {{ checked("any-other-names", "Yes") }} -->
+                <label class="govuk-label govuk-radios__label" for="any-other-names-1">
+                  Yes
+                </label> </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="any-other-names-2" name="any-other-names" type="radio" value="No"> <!-- {{ checked("any-other-names", "No") }} -->
+                <label class="govuk-label govuk-radios__label" for="any-other-names-2">
+                  No
+                </label> </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
